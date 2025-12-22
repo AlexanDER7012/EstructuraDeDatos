@@ -15,6 +15,7 @@ public class Main {
                            5. Mostrar Nodos
                            6. Eliminar Primer nodo
                            7. Eliminar Ultimo nodo
+                           8. Eliminar en lugar especifico
                            9. Salir
                            """);
         
@@ -55,7 +56,16 @@ public class Main {
             int cantidad = Integer.parseInt(entrada.nextLine());
             funciones.mostrarNodos(cantidad);
         }
+        if(opcion == 6) funciones.eliminarPrimero();
+        if(opcion == 7) funciones.eliminarUltimo();
         if (opcion == 9) bandera = true;
+        if (opcion == 8){
+            int total = funciones.obtenerCantidadTotal();
+            System.out.println("Ingresar posicion");
+            int posicion = Integer.parseInt(entrada.nextLine());
+            funciones.eliminarPosicion(posicion, total);
+            
+        }
         return bandera;
     }
     public static void start(){

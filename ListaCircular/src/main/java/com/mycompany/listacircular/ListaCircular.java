@@ -95,7 +95,51 @@ public void mostrarNodos(int cantidad){
     
     }
 }
+public void eliminarPrimero(){
+    if (head == null) System.out.println("La lista esta vacia");
+    else if (head.getSiguiente()== head) {
+        head = null;
+    System.out.println("Nodo Eliminado");
+        }
+    else{
+       Nodo ultimo = head.getAnterior();
+       head = head.getSiguiente();
+       head.setAnterior(ultimo);
+       ultimo.setSiguiente(head);
+        System.out.println("Nodo eliminado");
+    }
+}
+public void eliminarUltimo(){
+    if (head == null) System.out.println("La lista esta vacia");
+    else if (head.getSiguiente()== head) {
+                head = null;
+                System.out.println("Nodo eliminado");
+    } else{
+        Nodo ultimo = head.getAnterior();
+        ultimo = ultimo.getAnterior();
+        head.setAnterior(ultimo);
+        ultimo.setSiguiente(head);
+        System.out.println("Nodo eliminado");
+    }
 
+}
+public void eliminarPosicion(int posicion, int total){
+    if(head == null)System.out.println("La lista esta vacia");
+    else if(posicion <= 0 || posicion > total) System.out.println("Ingrese un valor correcto");
+    else if(head.getSiguiente()== head && posicion == 1){
+        eliminarPrimero();
+    } else{
+        Nodo recorrer = head;
+        Nodo ultimo = head.getAnterior();
+        for (int i = 1; recorrer != ultimo; i++) {
+            if( i == posicion-1 ) break;
+            recorrer = recorrer.getSiguiente();
+        }
+        recorrer.setSiguiente(recorrer.getSiguiente().getSiguiente());
+        recorrer.getSiguiente().setAnterior(recorrer);
+        System.out.println("Nodo eliminado");
+    }
+}
 
 
 }
