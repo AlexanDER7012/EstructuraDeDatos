@@ -36,7 +36,20 @@ public class Main {
             int edad = Integer.parseInt(entrada.nextLine());
             funciones.insertarFinal(edad, nombre);
         }   
-        
+        if(opcion == 3){
+            int cantidad = funciones.obtenerCantidadTotal();
+        System.out.println("Ingrese el nombre de la persona");
+            String nombre = entrada.nextLine();
+            System.out.println("Ingrese la edad de la persona");
+            int edad = Integer.parseInt(entrada.nextLine());
+            System.out.println("Ingrese en la poscicion que desea agregar");
+            int posicion = Integer.parseInt(entrada.nextLine());
+            funciones.insertarPosicionEspecifica(posicion, edad, nombre, cantidad);
+        }
+        if(opcion == 4){
+            int cantidad = funciones.obtenerCantidadTotal();
+            System.out.println("La cantidad total de la lista es: "+ cantidad);
+        }
         if(opcion == 5){
             System.out.println("Ingrese la cantidad de vueltas que desea hacer para ver el listado");
             int cantidad = Integer.parseInt(entrada.nextLine());
