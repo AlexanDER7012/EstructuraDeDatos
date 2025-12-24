@@ -22,4 +22,10 @@ public Caja (int numero){
     public void mostrarCola(){
         cola.mostrarCola();
     }
+
+    @Override
+    public String toString() {
+        return "Caja: " + numero;
+    }
+    
 }

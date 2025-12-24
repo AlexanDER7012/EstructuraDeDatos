@@ -1,16 +1,51 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.colalista;
 
-/**
- *
- * @author ErickPalomoTrabajos
- */
+import java.util.Scanner;
+
 public class Main {
 
+    public static int menu(Scanner entrada){
+        System.out.println("""
+                           Menu: 
+                           1. Ver Cajas disponibles
+                           2. Ver las colas en cajas
+                           3. Agregar Caja
+                           9. Salir
+                           """);
+        
+        return Integer.parseInt(entrada.nextLine());
+    }
+    
+    public static boolean funciones(int opcion, Scanner entrada, boolean salir, SuperMercado sup){
+        if (opcion == 1){
+            sup.mostrarCajas();
+        }
+        //if(opcion == 2)
+        if (opcion ==3){
+            System.out.println("Ingrese un numero para la caja");
+            int numero  = Integer.parseInt(entrada.nextLine());
+            sup.agregarCaja(numero);
+            
+        }
+        if (opcion == 9) salir = true;
+        return salir;
+    }
+    public static void start(){
+        SuperMercado sup = new SuperMercado();
+        boolean salir = false;
+        Scanner entrada = new Scanner(System.in);
+        while(!salir){
+        int opcion = menu(entrada);
+        salir = funciones(opcion, entrada, salir, sup);
+        }
+    }
+    
+    
+    
+    
+    
+    
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        start();
     }
 }
