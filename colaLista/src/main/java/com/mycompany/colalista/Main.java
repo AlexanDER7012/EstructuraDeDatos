@@ -10,6 +10,7 @@ public class Main {
                            1. Ver Cajas disponibles
                            2. Ver las colas en cajas
                            3. Agregar Caja
+                           4. Mantenimiento Caja
                            9. Salir
                            """);
         
@@ -17,15 +18,13 @@ public class Main {
     }
     
     public static boolean funciones(int opcion, Scanner entrada, boolean salir, SuperMercado sup){
-        if (opcion == 1){
-            sup.mostrarCajas();
-        }
+        if (opcion == 1) sup.mostrarCajas();
         //if(opcion == 2)
-        if (opcion ==3){
-            System.out.println("Ingrese un numero para la caja");
-            int numero  = Integer.parseInt(entrada.nextLine());
-            sup.agregarCaja(numero);
-            
+        if (opcion ==3) sup.agregarCaja();
+        if(opcion == 4){
+            System.out.println("inserte numero de caja a dar mantenmiento");
+            int numero = Integer.parseInt(entrada.nextLine());
+            sup.manteniminetoCajas(numero);
         }
         if (opcion == 9) salir = true;
         return salir;

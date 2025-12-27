@@ -2,12 +2,22 @@ package com.mycompany.colalista;
 
 public class Caja {
 private int numero;
+private boolean estado;
 private ColaPersona cola;
 
 public Caja (int numero){
     this.numero = numero;
+    this.estado = true;
     cola = new ColaPersona();
 }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     public int getNumero() {
         return numero;

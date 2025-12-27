@@ -8,34 +8,50 @@ public CajaLista(){
     
 }
 
-public void agregarCaja(int numero){
-        Caja caja = new Caja(numero);
+public void agregarCaja(){
+        int total = cajasTotales();
+        total = total+1;
+        Caja caja = new Caja(total);
         NodoCaja cajaNueva = new NodoCaja(caja);
     if(head == null) head = cajaNueva;
     else{
-        boolean encontrado = false;
-        NodoCaja recorrer = head;
-        for (int i = 0; recorrer != null; i++) {
-            if(recorrer.getCaja().getNumero()== numero){
-                encontrado = true;
-                break;
-            }
+       NodoCaja recorrer = head;
+        for (int i = 0; recorrer.getSiguiente()!=null; i++) {
             recorrer = recorrer.getSiguiente();
         }
-        if(encontrado) System.out.println("Este numero de caja ya esta registrada");
-        else{
-            cajaNueva.setSiguiente(head);
-            head = cajaNueva;
-      }
+        recorrer.setSiguiente(cajaNueva);
     } 
 }
+public void mantenimientoCaja(int posicion){
+    if(head == null) System.out.println("No existe nada");
+    else if ( posicion == 1) head.getCaja().setEstado(false);
+    else{
+        int total = this.cajasTotales();
+        NodoCaja recorrer = head;
+        for (int i = 1;recorrer!=null; i++) {
+            if(posicion>total){
+            System.out.println("Esta posicion de caja no existe");
+            break;
+            }
+
+            else if(i == posicion) recorrer.getCaja().setEstado(false);
+            recorrer = recorrer.getSiguiente();
+        
+    }
+    }
+}
+   
+    
 public int cajasTotales(){
     int total = 0;
     NodoCaja recorrer = head;
-    do{
-        total ++;
+    if(head == null) return 0;
+    else{
+    while(recorrer!=null){
+        total++;
         recorrer = recorrer.getSiguiente();
-    }while(recorrer.getSiguiente()!=null);
+    }
+    }
     
     return total;
 }
@@ -44,7 +60,8 @@ public void mostrarCajas(){
     else{
         NodoCaja recorrer = head;
         while(recorrer!=null){
-            System.out.println(recorrer.getCaja().toString());
+            if(recorrer.getCaja().isEstado()) System.out.println(recorrer.getCaja().toString());
+            else System.out.println("Caja " +recorrer.getCaja().getNumero()+ " en mantenimiento");
             recorrer = recorrer.getSiguiente(); 
         }
     }
