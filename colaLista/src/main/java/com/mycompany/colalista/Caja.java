@@ -22,7 +22,9 @@ public Caja (int numero){
     public int getNumero() {
         return numero;
     }
-    
+    public boolean colaVacia(){
+        return cola.colaVacia();
+    }
     public void agregarPersona(Persona persona){
         cola.agregarPersona(persona);
     }

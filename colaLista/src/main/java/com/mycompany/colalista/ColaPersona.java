@@ -36,4 +36,7 @@ public void mostrarCola(){
     }
     }
 }
+public boolean colaVacia(){
+    return head == null&& tail == null;
+}
 }

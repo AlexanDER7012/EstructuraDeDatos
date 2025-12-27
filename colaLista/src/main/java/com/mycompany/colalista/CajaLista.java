@@ -23,9 +23,13 @@ public void agregarCaja(){
     } 
 }
 public void mantenimientoCaja(int posicion){
+    boolean vacio = verificarSiHayPersonas(posicion);
     if(head == null) System.out.println("No existe nada");
-    else if ( posicion == 1) head.getCaja().setEstado(false);
+    else if ( posicion == 1 && vacio) head.getCaja().setEstado(false);
     else{
+        if(vacio){
+            
+        
         int total = this.cajasTotales();
         NodoCaja recorrer = head;
         for (int i = 1;recorrer!=null; i++) {
@@ -36,12 +40,13 @@ public void mantenimientoCaja(int posicion){
 
             else if(i == posicion) recorrer.getCaja().setEstado(false);
             recorrer = recorrer.getSiguiente();
-        
-    }
+       } 
+    }else{
+            System.out.println("Ya hay una cola en esta caja");
+        }
     }
 }
    
-    
 public int cajasTotales(){
     int total = 0;
     NodoCaja recorrer = head;
@@ -135,5 +140,18 @@ public void personaSeVaDeCaja(int posicion){
             recorrer = recorrer.getSiguiente();
         }
     }
+}
+public boolean verificarSiHayPersonas(int posicion){
+    NodoCaja recorrer = head;
+    boolean vacio = true;
+    for (int i = 1; recorrer!=null; i++) {
+        if(recorrer.getCaja().getNumero()== posicion){
+            vacio = recorrer.getCaja().colaVacia();
+           break;
+        }
+        recorrer = recorrer.getSiguiente();
+    }
+    
+    return vacio;
 }
 }
