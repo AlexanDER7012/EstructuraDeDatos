@@ -19,4 +19,10 @@ public void mostrarCajas(){
 public void manteniminetoCajas(int numero){
     cajaLista.mantenimientoCaja(numero);
 }
+public void abrirCaja(int numero){
+    cajaLista.abrirCaja(numero);
+}
+public void mostrarCajasMantenimiento(){
+    cajaLista.mostrarCajasMantenimiento();
+}
 }

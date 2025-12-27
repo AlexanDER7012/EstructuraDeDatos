@@ -11,6 +11,7 @@ public class Main {
                            2. Ver las colas en cajas
                            3. Agregar Caja
                            4. Mantenimiento Caja
+                           5. Reabrir Caja
                            9. Salir
                            """);
         
@@ -22,9 +23,16 @@ public class Main {
         //if(opcion == 2)
         if (opcion ==3) sup.agregarCaja();
         if(opcion == 4){
+            System.out.println("");
             System.out.println("inserte numero de caja a dar mantenmiento");
             int numero = Integer.parseInt(entrada.nextLine());
             sup.manteniminetoCajas(numero);
+        }
+        if(opcion == 5){
+            sup.mostrarCajasMantenimiento();
+            System.out.println("inserte numero de caja a reAbrir");
+            int numero = Integer.parseInt(entrada.nextLine());
+            sup.abrirCaja(numero);
         }
         if (opcion == 9) salir = true;
         return salir;

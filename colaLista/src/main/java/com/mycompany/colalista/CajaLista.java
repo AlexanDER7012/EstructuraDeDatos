@@ -66,5 +66,25 @@ public void mostrarCajas(){
         }
     }
 }
+public void mostrarCajasMantenimiento(){
+    NodoCaja recorrer = head;
+    System.out.print("Las cajas ");
+    while(recorrer!=null){
+        if(recorrer.getCaja().isEstado() == false) System.out.print(recorrer.getCaja().getNumero()+" ");
+        recorrer = recorrer.getSiguiente();
+    }
+        System.out.print("estan en mantenimiento");
+}
+public void abrirCaja(int posicion){
+    if(head == null) System.out.println("No existe nada");
+    else{
+    NodoCaja recorrer = head;
+    for (int i = 1; recorrer!=null; i++) {
+        if(i == posicion) recorrer.getCaja().setEstado(true);
+        recorrer = recorrer.getSiguiente();
+        
+    }
+        }
+}
 
 }
