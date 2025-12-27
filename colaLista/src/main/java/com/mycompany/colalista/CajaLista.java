@@ -86,5 +86,54 @@ public void abrirCaja(int posicion){
     }
         }
 }
-
+    public boolean buscarCajaDisponible(int numero){
+        NodoCaja recorrer = head;
+        for (int i =1; recorrer!=null; i++) {
+            if(recorrer.getCaja().getNumero() == numero) return recorrer.getCaja().isEstado();
+            recorrer = recorrer.getSiguiente();
+        }
+        return false;
+    }
+public void agregarPersonaCaja(Persona persona, int posicion){
+    if(head == null) System.out.println("No existe nada");
+    else {
+        boolean disponible = buscarCajaDisponible(posicion);
+        if(!disponible) System.out.println("Esta caja no existe o se encuentra en mantenimiento");
+        else{
+            NodoCaja recorrer = head;
+            for (int i = 1; recorrer!=null; i++) {
+                if(i == posicion){
+                    recorrer.getCaja().agregarPersona(persona);
+                    System.out.println("Persona haciendo cola en la "+recorrer.getCaja().toString());
+                    break;
+                }
+                recorrer = recorrer.getSiguiente();
+            }
+            
+        }
+    }
+}
+public void mostrarCajasConFilas(){
+       if(head == null) System.out.println("No existe nada");
+       else{
+           NodoCaja recorrer = head;
+           for (int i = 1; recorrer!=null; i++) {
+               System.out.println(recorrer.getCaja() +" ");
+               recorrer.getCaja().mostrarCola();
+               System.out.println("");
+               System.out.println("--------------------------");
+               recorrer = recorrer.getSiguiente();
+           }
+       }
+}
+public void personaSeVaDeCaja(int posicion){
+    if(head == null )System.out.println("No existe nada");
+    else{
+        NodoCaja recorrer = head;
+        for (int i = 1; recorrer!=null; i++) {
+           if (recorrer.getCaja().getNumero()== posicion) recorrer.getCaja().eliminarPersona();
+            recorrer = recorrer.getSiguiente();
+        }
+    }
+}
 }

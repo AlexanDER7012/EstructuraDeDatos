@@ -18,7 +18,7 @@ public void agregarPersona(Persona persona){
     }
 }
 public void eliminarPersona(){
-    if(head == null && tail == null) System.out.println("No hay nada en cola");
+    if(head == null && tail == null) System.out.println("Esperando personas...");
     else{
         head = head.getSiguiente();
         if(head == null) tail = null;
@@ -30,7 +30,8 @@ public void mostrarCola(){
     else{
     NodoPersona recorrer = head;
     while(recorrer !=null){
-        System.out.println(recorrer.getPersona());
+        System.out.print(recorrer.getPersona()+" ");
+
         recorrer = recorrer.getSiguiente();
     }
     }

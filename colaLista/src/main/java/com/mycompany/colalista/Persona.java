@@ -38,6 +38,6 @@ public Persona (String nombre, int edad, int turno){
 
     @Override
     public String toString() {
-        return "(" + nombre +"("+ turno+ ") )";
+        return "(" + nombre +"("+ turno+ "))";
     }
     }

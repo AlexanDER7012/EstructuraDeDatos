@@ -25,4 +25,16 @@ public void abrirCaja(int numero){
 public void mostrarCajasMantenimiento(){
     cajaLista.mostrarCajasMantenimiento();
 }
+public boolean buscarCajaDisponible(int numero){
+    return cajaLista.buscarCajaDisponible(numero);
+}
+public void agregarPersonaCaja(Persona persona, int posicion){
+    cajaLista.agregarPersonaCaja(persona, posicion);
+}
+public void mostrarCajasConFilas(){
+    cajaLista.mostrarCajasConFilas();
+}
+public void personaSeVaDeCaja(int posicion){
+    cajaLista.personaSeVaDeCaja(posicion);
+}
 }
