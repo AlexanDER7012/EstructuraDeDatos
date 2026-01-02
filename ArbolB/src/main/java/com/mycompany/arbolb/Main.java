@@ -31,6 +31,11 @@ public class Main {
             int orden = Integer.parseInt(entrada.nextLine());
             sup.mostrarTodos(orden);
         }
+        if (opcion == 3){
+            System.out.println("Ingrese el numero que desea buscar");
+            int buscar = Integer.parseInt(entrada.nextLine());
+            sup.buscarNodo(buscar, true);
+        }
         
         return salir;
     }

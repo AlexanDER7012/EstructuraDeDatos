@@ -35,13 +35,13 @@ public void mostrarTodos(int dato){
 private void mostrarInorden(Nodo nodo){
         if(nodo !=null){
         mostrarInorden(nodo.getLeft());
-        System.out.println(nodo.getDato()+ " ");
+        System.out.print(nodo.getDato()+ " ");
         mostrarInorden(nodo.getRight());
     }
 }
 private void mostrarPreorden(Nodo nodo){
     if(nodo !=null){
-        System.out.println(nodo.getDato()+ " ");
+        System.out.print(nodo.getDato()+ " ");
         mostrarPreorden(nodo.getLeft());
         mostrarPreorden(nodo.getRight());
     }
@@ -51,9 +51,24 @@ private void mostrarPostorden(Nodo nodo){
     if(nodo !=null){
         mostrarPostorden(nodo.getLeft());
         mostrarPostorden(nodo.getRight());
-        System.out.println(nodo.getDato()+ " ");
+        System.out.print(nodo.getDato()+ " ");
     }
 
+}
+public void buscarNodo(int dato, boolean bandera){
+    int conteo;
+    Nodo recorrer = head;
+    for(conteo = 1; recorrer!= null; conteo++){
+        if(dato == recorrer.getDato()) break;
+        if(dato > recorrer.getDato()) recorrer = recorrer.getRight();
+        else recorrer = recorrer.getLeft();
+        
+    }
+    if(recorrer == null) System.out.println("Dato no encontrado");
+    else {
+        if (bandera==true) System.out.println("El numero " + dato + "fue encontrado en "+ conteo+ "conteos");
+        
+    }
 }
 
 }
