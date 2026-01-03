@@ -36,6 +36,11 @@ public class Main {
             int buscar = Integer.parseInt(entrada.nextLine());
             sup.buscarNodo(buscar, true);
         }
+        if(opcion == 4){
+            System.out.println("Ingrese el numero que desea eliminar");
+            int buscar = Integer.parseInt(entrada.nextLine());
+            sup.buscarNodo(buscar, false);
+        }
         
         return salir;
     }

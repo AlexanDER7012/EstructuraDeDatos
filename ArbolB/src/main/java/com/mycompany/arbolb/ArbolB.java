@@ -58,17 +58,32 @@ private void mostrarPostorden(Nodo nodo){
 public void buscarNodo(int dato, boolean bandera){
     int conteo;
     Nodo recorrer = head;
+    Nodo anterior = null;
     for(conteo = 1; recorrer!= null; conteo++){
         if(dato == recorrer.getDato()) break;
+        else anterior = recorrer;
         if(dato > recorrer.getDato()) recorrer = recorrer.getRight();
         else recorrer = recorrer.getLeft();
         
     }
     if(recorrer == null) System.out.println("Dato no encontrado");
     else {
-        if (bandera==true) System.out.println("El numero " + dato + "fue encontrado en "+ conteo+ "conteos");
+        if (bandera==true) System.out.println("El numero " + dato + " fue encontrado en "+ conteo+ " conteos");
+        else eliminarRaices(recorrer, anterior);
         
     }
 }
-
+public void eliminarRaices(Nodo encontrado, Nodo anterior){
+    if(encontrado !=null){
+        eliminarRaices(encontrado.getLeft(),encontrado);
+        eliminarRaices(encontrado.getRight(),encontrado);
+    
+    System.out.println("nodo "+ encontrado.getDato()+ " eliminado");
+    if (anterior!=null){
+        if(encontrado.getDato()>anterior.getDato()) anterior.setRight(null);
+        else anterior.setLeft(null);
+    }
+    if (encontrado == head) head = null;
+}
+    }
 }
